@@ -26,17 +26,17 @@ enum ReceiptAttributeType: Int {
          expirationDate = 21
 }
 
-struct AppleReceipt: Equatable {
-    let bundleId: String
-    let applicationVersion: String
-    let originalApplicationVersion: String
-    let opaqueValue: Data
-    let sha1Hash: Data
-    let creationDate: Date
-    let expirationDate: Date?
-    let inAppPurchases: [InAppPurchase]
+public struct AppleReceipt: Equatable {
+    public let bundleId: String
+    public let applicationVersion: String
+    public let originalApplicationVersion: String
+    public let opaqueValue: Data
+    public let sha1Hash: Data
+    public let creationDate: Date
+    public let expirationDate: Date?
+    public let inAppPurchases: [InAppPurchase]
 
-    func purchasedIntroOfferOrFreeTrialProductIdentifiers() -> Set<String> {
+    public func purchasedIntroOfferOrFreeTrialProductIdentifiers() -> Set<String> {
         let productIdentifiers = inAppPurchases
             .filter { $0.isInIntroOfferPeriod || $0.isInTrialPeriod == true }
             .map { $0.productId }

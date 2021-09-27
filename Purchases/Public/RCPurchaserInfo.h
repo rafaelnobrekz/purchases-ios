@@ -37,6 +37,10 @@ NS_SWIFT_NAME(Purchases.PurchaserInfo)
 /// The purchases are ordered by purchase date in ascending order.
 @property (nonatomic, readonly) NSArray<RCTransaction *> *nonSubscriptionTransactions;
 
+@property (nonatomic, readonly) NSDictionary<NSString *, NSDate *> *expirationDatesByProduct;
+
+@property (nonatomic, readonly) NSDictionary<NSString *, NSDate *> *purchaseDatesByProduct;
+
 /**
 Returns the build number (in iOS) or the marketing version (in macOS) for the version of the application when the user bought the app.
 This corresponds to the value of CFBundleVersion (in iOS) or CFBundleShortVersionString (in macOS) in the Info.plist file when the purchase was originally made.

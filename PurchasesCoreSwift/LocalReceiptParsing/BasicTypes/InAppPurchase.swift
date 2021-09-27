@@ -22,7 +22,7 @@ enum InAppPurchaseAttributeType: Int {
          promotionalOfferIdentifier = 1721
 }
 
-enum InAppPurchaseProductType: Int {
+public enum InAppPurchaseProductType: Int {
     case unknown = -1,
          nonConsumable,
          consumable,
@@ -30,22 +30,22 @@ enum InAppPurchaseProductType: Int {
          autoRenewableSubscription
 }
 
-struct InAppPurchase: Equatable {
-    let quantity: Int
-    let productId: String
-    let transactionId: String
-    let originalTransactionId: String
-    let productType: InAppPurchaseProductType?
-    let purchaseDate: Date
-    let originalPurchaseDate: Date
-    let expiresDate: Date?
-    let cancellationDate: Date?
-    let isInTrialPeriod: Bool?
-    let isInIntroOfferPeriod: Bool
-    let webOrderLineItemId: Int64
-    let promotionalOfferIdentifier: String?
+public struct InAppPurchase: Equatable {
+    public let quantity: Int
+    public let productId: String
+    public let transactionId: String
+    public let originalTransactionId: String
+    public let productType: InAppPurchaseProductType?
+    public let purchaseDate: Date
+    public let originalPurchaseDate: Date
+    public let expiresDate: Date?
+    public let cancellationDate: Date?
+    public let isInTrialPeriod: Bool?
+    public let isInIntroOfferPeriod: Bool
+    public let webOrderLineItemId: Int64
+    public let promotionalOfferIdentifier: String?
 
-    var asDict: [String: Any] {
+    public var asDict: [String: Any] {
         return [
             "quantity": quantity,
             "productId": productId,
@@ -63,7 +63,7 @@ struct InAppPurchase: Equatable {
         ]
     }
 
-    var description: String {
+    public var description: String {
         return String(describing: self.asDict)
     }
 }

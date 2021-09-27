@@ -38,7 +38,7 @@ import Foundation
         return true
     }
 
-    func parse(from receiptData: Data) throws -> AppleReceipt {
+    public func parse(from receiptData: Data) throws -> AppleReceipt {
         let intData = [UInt8](receiptData)
 
         let asn1Container = try containerBuilder.build(fromPayload: ArraySlice(intData))

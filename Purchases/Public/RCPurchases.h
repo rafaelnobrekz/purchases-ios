@@ -10,6 +10,7 @@
 
 #import "RCAttributionNetwork.h"
 #import "RCLogLevel.h"
+#import "RCReceiptRefreshPolicy.h"
 
 @class SKProduct, SKPayment, SKPaymentTransaction, SKPaymentDiscount, SKProductDiscount, RCPurchaserInfo, RCIntroEligibility, RCOfferings, RCOffering, RCPackage;
 @protocol RCPurchasesDelegate;
@@ -570,6 +571,13 @@ NS_SWIFT_NAME(syncPurchases(_:));
  *
  */
 - (void)collectDeviceIdentifiers;
+
+#pragma mark Exposed Private Methods
+
+typedef void (^RCReceiveReceiptDataBlock)(NSData *);
+
+- (void)receiptDataWithReceiptRefreshPolicy:(RCReceiptRefreshPolicy)refreshPolicy
+                                 completion:(RCReceiveReceiptDataBlock)completion;
 
 #pragma mark Unavailable Methods
 #define RC_UNAVAILABLE(msg) __attribute__((unavailable(msg)));
